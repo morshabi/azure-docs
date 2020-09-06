@@ -82,8 +82,7 @@ Choose a syslog daemon to see the appropriate description.
         Contents of the `security-config-omsagent.conf` file:
 
         ```console
-        :rawmsg, regex, "CEF"|"ASA"
-        *.* @@127.0.0.1:25226
+        if $rawmsg contains "CEF" or $rawmsg contains "ASA" then @@127.0.0.1:25226
         ```
 
 1. **Restarting the Syslog daemon**
