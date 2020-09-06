@@ -75,8 +75,7 @@ The validation script performs the following checks:
     - Configuration file: `/etc/rsyslog.d/security-config-omsagent.conf`
 
         ```console
-        :rawmsg, regex, "CEF"|"ASA"
-        *.* @@127.0.0.1:25226
+        if $rawmsg contains "CEF" or $rawmsg contains "ASA" then @@127.0.0.1:25226
         ```
   
 1. Checks that the syslog daemon is receiving data on port 514
